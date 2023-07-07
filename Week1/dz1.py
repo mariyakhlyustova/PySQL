@@ -177,8 +177,7 @@ print(str.count(' ') + 1)
 # Задача 4:
 str = input()
 n = str.find(' ')
-new_str = str[n+1:] + ' ' + str[:n]
-print(new_str)
+print(str[n+1:] + ' ' + str[:n])
 
 # Задача 5:
 str = input()
