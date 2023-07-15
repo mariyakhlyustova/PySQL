@@ -13,6 +13,8 @@ def add(path, data):
     d['users'].append(data)
     write_json('data.json', d)
 
+
+
 # with open('data.json', 'r', encoding='UTF-8') as f:
 #     d = json.load(f)
 # d = read_json('data.json')
