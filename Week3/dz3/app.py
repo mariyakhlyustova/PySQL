@@ -20,7 +20,7 @@ def add_client(client_name, client_lastname, client_age):
         return
     cursor.execute('''
         INSERT INTO client (name, lastname, age)
-            values (?, ?, ?)
+            VALUES (?, ?, ?)
     ''', [client_name, client_lastname, client_age])
     conn.commit() 
 
@@ -31,21 +31,21 @@ def json_add_client(path):
             lst = []
             for j in i:
                 lst.append(i[j])
-            cursor.execute('''select * from client WHERE name=? AND lastname=?''', (lst[0], lst[1]))
+            cursor.execute('''SELECT * FROM client WHERE name=? AND lastname=?''', (lst[0], lst[1]))
             if cursor.fetchone():
                 return
             cursor.execute('''
-                insert into client (name, lastname, age)
-                values (?, ?, ?)
+                INSERT INTO client (name, lastname, age)
+                VALUES (?, ?, ?)
             ''', lst)
             conn.commit()
 
 def avg_client_age():
-    cursor.execute('''select avg(age) from client''')
+    cursor.execute('''SELECT avg(age) FROM client''')
     return cursor.fetchone()
 
 # def get_client():
-#     cursor.execute('''select name, lastname, age from client''')
+#     cursor.execute('''SELECT name, lastname, age FROM client''')
 #     return cursor.fetchall()
 
 conn = sqlite3.connect('database.db') 
